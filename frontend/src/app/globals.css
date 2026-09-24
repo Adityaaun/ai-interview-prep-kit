@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+:root {
+  /* Premium Dark Theme Variables */
+  --bg-base: #05070B;
+  --bg-ambient: #080B12;
+  
+  --surface-1: #0C111A;
+  --surface-2: #101722;
+  --surface-3: #131B27;
+  
+  --border-subtle: rgba(255, 255, 255, 0.05);
+  --border-active: rgba(255, 255, 255, 0.12);
+  
+  --text-primary: #F8FAFC;
+  --text-secondary: #94A3B8;
+  --text-tertiary: #64748B;
+  
+  --accent-base: #6366F1;
+  --accent-hover: #8B5CF6;
+  --accent-subtle: rgba(99, 102, 241, 0.15);
+  --accent-border: rgba(99, 102, 241, 0.3);
+}
+
+@theme inline {
+  --color-base: var(--bg-base);
+  --color-ambient: var(--bg-ambient);
+  --color-surface-1: var(--surface-1);
+  --color-surface-2: var(--surface-2);
+  --color-surface-3: var(--surface-3);
+  --color-border-subtle: var(--border-subtle);
+  --color-border-active: var(--border-active);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-tertiary: var(--text-tertiary);
+  --color-accent-base: var(--accent-base);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-subtle: var(--accent-subtle);
+  --color-accent-border: var(--accent-border);
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--bg-base);
+}
+
+body {
+  background: var(--bg-base);
+  color: var(--text-primary);
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-base);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--surface-3);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-tertiary);
+}
+
+@layer components {
+  /* Surfaces */
+  .surface-primary {
+    @apply bg-surface-1 border border-border-subtle rounded-2xl shadow-lg;
+  }
+  .surface-secondary {
+    @apply bg-surface-2 border border-border-subtle rounded-xl;
+  }
+  .surface-tertiary {
+    @apply bg-surface-3 rounded-lg border border-transparent;
+  }
+  
+  /* Buttons */
+  .btn-primary {
+    @apply bg-gradient-to-r from-accent-base to-accent-hover text-white font-medium px-5 py-2.5 rounded-lg 
+           shadow-[0_2px_10px_rgba(99,102,241,0.2)] hover:shadow-[0_4px_15px_rgba(139,92,246,0.4)]
+           transition-all duration-200 hover:-translate-y-0.5 disabled:opacity-50 disabled:hover:translate-y-0 
+           focus:outline-none focus:ring-2 focus:ring-accent-base focus:ring-offset-2 focus:ring-offset-base;
+  }
+  .btn-secondary {
+    @apply bg-surface-2 hover:bg-surface-3 text-text-primary border border-border-subtle font-medium px-5 py-2.5 
+           rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-border-active;
+  }
+  .btn-danger {
+    @apply bg-red-500/10 hover:bg-red-500/20 text-red-400 border border-red-500/20 font-medium px-5 py-2.5 
+           rounded-lg transition-all duration-200;
+  }
+  
+  /* Inputs */
+  .input-premium {
+    @apply w-full bg-surface-1 border border-border-subtle rounded-lg p-3 text-text-primary 
+           focus:outline-none focus:ring-2 focus:ring-accent-border focus:border-accent-border 
+           transition-all duration-200 placeholder-text-tertiary shadow-inner;
+  }
+  
+  /* Badges */
+  .badge-generated {
+    @apply px-2 py-0.5 rounded text-xs font-medium bg-surface-3 text-text-secondary border border-border-subtle;
+  }
+  .badge-edited {
+    @apply px-2 py-0.5 rounded text-xs font-medium bg-accent-subtle text-accent-base border border-accent-border;
+  }
+  .badge-user {
+    @apply px-2 py-0.5 rounded text-xs font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/20;
+  }
+}
