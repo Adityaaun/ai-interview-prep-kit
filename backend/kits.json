@@ -1,0 +1,76 @@
+{
+  "version": "1.0",
+  "generated_at": "2026-09-24T09:00:41.500Z",
+  "kits": [
+    {
+      "id": "case1",
+      "status": "ok",
+      "kit": {
+        "source": {
+          "company": "dummy.com",
+          "company_url": "http://dummy.com",
+          "role": "",
+          "location": "Remote",
+          "jd_chars": 8,
+          "researched_at": "2026-09-24T09:00:46.461Z",
+          "pages_used": [
+            "http://dummy.com"
+          ]
+        },
+        "company_brief": {
+          "summary": "",
+          "what_they_do": "",
+          "sources": []
+        },
+        "role": {
+          "title": "",
+          "seniority": "",
+          "responsibilities": [],
+          "requirements": []
+        },
+        "questions": [],
+        "flashcards": [],
+        "schedule": {
+          "days_available": 5,
+          "days": [
+            {
+              "day": 1,
+              "focus": "Flashcards & Review",
+              "question_ids": [],
+              "minutes": 15
+            },
+            {
+              "day": 2,
+              "focus": "Flashcards & Review",
+              "question_ids": [],
+              "minutes": 15
+            },
+            {
+              "day": 3,
+              "focus": "Flashcards & Review",
+              "question_ids": [],
+              "minutes": 15
+            },
+            {
+              "day": 4,
+              "focus": "Flashcards & Review",
+              "question_ids": [],
+              "minutes": 15
+            },
+            {
+              "day": 5,
+              "focus": "Flashcards & Review",
+              "question_ids": [],
+              "minutes": 15
+            }
+          ]
+        },
+        "coverage": {
+          "uncovered_requirement_ids": [],
+          "passes": 1
+        }
+      },
+      "error": null
+    }
+  ]
+}

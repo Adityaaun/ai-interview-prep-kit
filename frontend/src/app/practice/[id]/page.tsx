@@ -65,7 +65,7 @@ export default function PracticePage() {
 
   const handleConfidence = async (score: number) => {
     // Optimistically update the current kit's flashcard array
-    const updatedFlashcards = flashcards.map(f => {
+    const updatedFlashcards = flashcards.map((f: any) => {
       if (f.id === currentCard.id) {
         return {
           ...f,
@@ -116,8 +116,15 @@ export default function PracticePage() {
       </div>
 
       <div 
-        className="w-full h-96 perspective-1000 cursor-pointer group"
+        className="w-full h-96 perspective-1000 cursor-pointer group outline-none focus:ring-2 focus:ring-accent-base focus:ring-offset-2 focus:ring-offset-surface-1 rounded-2xl"
         onClick={() => setShowAnswer(!showAnswer)}
+        tabIndex={0}
+        onKeyDown={(e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            setShowAnswer(!showAnswer);
+          }
+        }}
       >
         <div className={`relative w-full h-full transition-transform duration-700 transform-style-preserve-3d ${showAnswer ? 'rotate-y-180' : ''}`}>
           {/* Front */}

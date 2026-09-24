@@ -100,6 +100,11 @@ router.patch('/:id', async (req: AuthRequest, res: Response, next: NextFunction)
     const { section, data } = req.body;
     if (!section || !data) return res.status(400).json({ error: 'Missing section or data' });
 
+    const allowedSections = ['company_brief', 'questions', 'flashcards', 'schedule'];
+    if (!allowedSections.includes(section)) {
+      return res.status(400).json({ error: 'Invalid section' });
+    }
+
     const kit = await Kit.findOne({ _id: req.params.id, userId: req.user!.id });
     if (!kit) return res.status(404).json({ error: 'Kit not found' });
 
@@ -140,6 +145,10 @@ router.post('/:id/regenerate', async (req: AuthRequest, res: Response, next: Nex
     } else if (section === 'schedule') {
       const schedule = scheduleService.allocateSchedule(kit.questions as any, reqs, kit.schedule?.days_available || 5);
       kit.schedule = schedule as any;
+    } else if (section === 'flashcards') {
+      const newFlashcards = await draftingService.generateFlashcards(reqs, contextText);
+      const mergedFlashcards = builderService.mergeSection(kit.flashcards as any, newFlashcards);
+      kit.flashcards = mergedFlashcards as any;
     } else {
       return res.status(400).json({ error: 'Unsupported section for regeneration' });
     }
