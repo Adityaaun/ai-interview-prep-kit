@@ -33,6 +33,22 @@ describe('CrawlerService', () => {
     expect(result?.links).toContain('https://other.com/');
   });
 
+  it('should retry on transient failures and succeed', async () => {
+    let attempts = 0;
+    vi.mocked(axios.get).mockImplementation(async (url) => {
+      if (url.includes('robots.txt')) return { status: 404, data: '' };
+      attempts++;
+      if (attempts === 1) {
+        throw { code: 'ECONNABORTED' };
+      }
+      return { status: 200, headers: { 'content-type': 'text/html' }, data: '<html><body>Success</body></html>' };
+    });
+
+    const result = await crawler.fetchPage('https://retry.com');
+    expect(attempts).toBe(2);
+    expect(result?.textContent).toBe('Success');
+  });
+
   it('should return null for unreachable company', async () => {
     vi.mocked(axios.get).mockRejectedValue(new Error('Network error'));
     const result = await crawler.fetchPage('https://unreachable.com');

@@ -64,7 +64,7 @@ export class CoverageService {
     }
 
     if (uncoveredIds.length > 0) {
-      throw new Error(`COVERAGE_FAILED: Failed to cover must-have requirements: ${uncoveredIds.join(', ')}`);
+      console.warn(`COVERAGE_INCOMPLETE: Failed to cover must-have requirements: ${uncoveredIds.join(', ')}`);
     }
 
     return {

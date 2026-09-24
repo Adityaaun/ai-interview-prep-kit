@@ -37,7 +37,7 @@ export class CrawlerService {
     }
   }
 
-  async fetchPage(targetUrl: string): Promise<CrawledPage | null> {
+  async fetchPage(targetUrl: string, isRetry: boolean = false): Promise<CrawledPage | null> {
     const isSafe = await validateUrlSSRF(targetUrl);
     if (!isSafe) {
       console.warn(`SSRF Validation failed or unresolvable for: ${targetUrl}`);
@@ -108,6 +108,14 @@ export class CrawlerService {
         links
       };
     } catch (error: any) {
+      if (!isRetry) {
+        const isTransient = error.code === 'ECONNABORTED' || (error.response && (error.response.status >= 500 || error.response.status === 429));
+        if (isTransient) {
+          console.log(`Transient error fetching ${targetUrl}, retrying in 1.5s...`);
+          await new Promise(r => setTimeout(r, 1500));
+          return this.fetchPage(targetUrl, true);
+        }
+      }
       console.error(`Failed to fetch ${targetUrl}:`, error.message);
       return null;
     }

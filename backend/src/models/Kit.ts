@@ -7,6 +7,7 @@ const kitSchema = new mongoose.Schema({
     step: { type: String, default: 'Initializing' },
     percent: { type: Number, default: 0 }
   },
+  internalContext: String,
   
   // Appendix A Schema
   source: {
@@ -16,8 +17,7 @@ const kitSchema = new mongoose.Schema({
     location: String,
     jd_chars: Number,
     researched_at: String,
-    pages_used: [String],
-    contextText: String
+    pages_used: [String]
   },
   company_brief: {
     summary: String,

@@ -37,58 +37,91 @@ export default function KitBuilderPage() {
   };
 
   const handleUpdateQuestion = (qId: string, field: string, value: any) => {
+    let updatedQuestions: any[] = [];
     setCurrentKitOptimistic(kit => {
       const idx = kit.questions.findIndex((q: any) => q.id === qId);
       if (idx !== -1) {
         kit.questions[idx][field] = value;
         kit.questions[idx].origin = 'EDITED';
       }
+      updatedQuestions = [...kit.questions];
       return kit;
     });
-    updateKitSection(id, 'questions', currentKit.questions);
+    if (updatedQuestions.length > 0) {
+      updateKitSection(id, 'questions', updatedQuestions);
+    }
   };
 
   const handleAddQuestion = (category: string) => {
     const newQ = { id: `q_${Math.random().toString(16).slice(2, 10)}`, category, prompt: 'New Question', answer_outline: '', origin: 'USER_CREATED', difficulty: 1, requirement_ids: [] };
+    let updatedQuestions: any[] = [];
     setCurrentKitOptimistic(kit => {
       kit.questions.push(newQ);
+      updatedQuestions = [...kit.questions];
       return kit;
     });
-    updateKitSection(id, 'questions', currentKit.questions);
+    updateKitSection(id, 'questions', updatedQuestions);
   };
 
   const handleDeleteQuestion = (qId: string) => {
+    let updatedQuestions: any[] = [];
     setCurrentKitOptimistic(kit => {
       kit.questions = kit.questions.filter((q: any) => q.id !== qId);
+      updatedQuestions = [...kit.questions];
       return kit;
     });
-    updateKitSection(id, 'questions', currentKit.questions);
+    if (updatedQuestions.length > 0) {
+      updateKitSection(id, 'questions', updatedQuestions);
+    }
   };
 
   const handleMoveQuestion = (qId: string, direction: 'up' | 'down') => {
+    let updatedQuestions: any[] = [];
     setCurrentKitOptimistic(kit => {
       const idx = kit.questions.findIndex((q: any) => q.id === qId);
       if (idx < 0) return kit;
-      if (direction === 'up' && idx > 0) {
-        [kit.questions[idx - 1], kit.questions[idx]] = [kit.questions[idx], kit.questions[idx - 1]];
-      } else if (direction === 'down' && idx < kit.questions.length - 1) {
-        [kit.questions[idx + 1], kit.questions[idx]] = [kit.questions[idx], kit.questions[idx + 1]];
+      
+      const category = kit.questions[idx].category;
+      const sameCategoryIndices = kit.questions
+        .map((q: any, i: number) => q.category === category ? i : -1)
+        .filter((i: number) => i !== -1);
+      
+      const currentPos = sameCategoryIndices.indexOf(idx);
+      
+      if (direction === 'up' && currentPos > 0) {
+        const swapIdx = sameCategoryIndices[currentPos - 1];
+        const temp = kit.questions[swapIdx];
+        kit.questions[swapIdx] = kit.questions[idx];
+        kit.questions[idx] = temp;
+      } else if (direction === 'down' && currentPos < sameCategoryIndices.length - 1) {
+        const swapIdx = sameCategoryIndices[currentPos + 1];
+        const temp = kit.questions[swapIdx];
+        kit.questions[swapIdx] = kit.questions[idx];
+        kit.questions[idx] = temp;
       }
+      
+      updatedQuestions = [...kit.questions];
       return kit;
     });
-    updateKitSection(id, 'questions', currentKit.questions);
+    if (updatedQuestions.length > 0) {
+      updateKitSection(id, 'questions', updatedQuestions);
+    }
   };
 
   const handleChangeCategory = (qId: string, newCategory: string) => {
+    let updatedQuestions: any[] = [];
     setCurrentKitOptimistic(kit => {
       const q = kit.questions.find((q: any) => q.id === qId);
       if (q) {
         q.category = newCategory;
         q.origin = 'EDITED';
       }
+      updatedQuestions = [...kit.questions];
       return kit;
     });
-    updateKitSection(id, 'questions', currentKit.questions);
+    if (updatedQuestions.length > 0) {
+      updateKitSection(id, 'questions', updatedQuestions);
+    }
   };
 
   const handleUpdateFlashcard = (fId: string, field: string, value: any) => {
@@ -253,7 +286,7 @@ export default function KitBuilderPage() {
                     
                     <div className="flex items-center gap-2 mb-4">
                       <span className={q.origin === 'EDITED' ? 'badge-edited' : q.origin === 'USER_CREATED' ? 'badge-user' : 'badge-generated'}>{q.origin}</span>
-                      <span className="badge-generated">Difficulty: {q.difficulty}/5</span>
+                      <span className="badge-generated">Difficulty: {q.difficulty}/3</span>
                     </div>
                     
                     <input 

@@ -20,6 +20,16 @@ router.post('/', async (req: AuthRequest, res: Response, next: NextFunction) => 
       return res.status(400).json({ error: 'Missing jd, company_url, or days' });
     }
 
+    const existing = await Kit.findOne({
+      userId: req.user!.id,
+      'source.company_url': company_url,
+      'source.jd_chars': jd.length
+    });
+
+    if (existing) {
+      return res.status(200).json({ id: existing._id, status: existing.status, duplicate: true });
+    }
+
     const result = await KitGenerator.generateKitData(jd, company_url, days, req.user!.id);
     res.status(201).json({ id: result.id, status: result.status });
   } catch (error: any) {
@@ -48,6 +58,14 @@ router.post('/batch', async (req: AuthRequest, res: Response, next: NextFunction
       const { jd, company_url, days } = role;
       if (!jd || !company_url || !days) {
         throw new Error('Missing jd, company_url, or days');
+      }
+      const existing = await Kit.findOne({
+        userId: req.user!.id,
+        'source.company_url': company_url,
+        'source.jd_chars': jd.length
+      });
+      if (existing) {
+        return { id: existing._id, status: existing.status };
       }
       return await KitGenerator.generateKitData(jd, company_url, Number(days), req.user!.id);
     }));
@@ -130,7 +148,7 @@ router.post('/:id/regenerate', async (req: AuthRequest, res: Response, next: Nex
     const builderService = new BuilderService();
     const scheduleService = new ScheduleService();
 
-    const contextText = kit.source?.contextText || '';
+    const contextText = (kit as any).internalContext || '';
     const reqs = kit.role?.requirements || [];
 
     if (section === 'brief') {

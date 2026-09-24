@@ -64,7 +64,7 @@ describe('CoverageService', () => {
     );
   });
 
-  it('should throw an error if must-have requirement remains uncovered after 2 passes', async () => {
+  it('should return with uncovered requirements instead of throwing after 2 passes', async () => {
     const reqs = [
       { id: 'r1', priority: 'must', kind: 'technical' }
     ];
@@ -74,7 +74,9 @@ describe('CoverageService', () => {
     // Mock the second pass generation to ALSO fail to cover r1
     mockDraftingService.generateQuestions.mockResolvedValue([]);
 
-    await expect(coverageService.ensureCoverage(reqs, initialQuestions, 'Context')).rejects.toThrow('COVERAGE_FAILED: Failed to cover must-have requirements: r1');
+    const result = await coverageService.ensureCoverage(reqs, initialQuestions, 'Context');
+    expect(result.uncoveredIds).toContain('r1');
+    expect(result.passes).toBe(2);
   });
 
   it('should succeed if only nice-to-have requirements remain uncovered', async () => {

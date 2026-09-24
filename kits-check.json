@@ -1,0 +1,156 @@
+{
+  "version": "1.0",
+  "generated_at": "2026-09-24T12:03:38.581Z",
+  "kits": [
+    {
+      "id": "case-normal",
+      "status": "ok",
+      "kit": {
+        "source": {
+          "company": "example.com",
+          "company_url": "https://example.com",
+          "role": "Senior Software Engineer",
+          "location": "Remote",
+          "jd_chars": 202,
+          "researched_at": "2026-09-24T12:03:52.280Z",
+          "pages_used": []
+        },
+        "company_brief": {
+          "summary": "Reddit is a social media platform that hosts a network of communities where users share and discuss content on a wide variety of topics.",
+          "what_they_do": "Reddit provides an online platform for content aggregation, discussion, and social networking, allowing users to post, vote, and comment on links, text posts, and media across countless sub‑communities (subreddits).",
+          "sources": []
+        },
+        "role": {
+          "title": "Senior Software Engineer",
+          "seniority": "Senior",
+          "responsibilities": [
+            "Build scalable microservices",
+            "Mentor junior developers"
+          ],
+          "requirements": [
+            {
+              "id": "req_59e9b3a3",
+              "text": "5+ years experience with React, Node.js, and TypeScript.",
+              "kind": "technical",
+              "priority": "must"
+            },
+            {
+              "id": "req_0c217805",
+              "text": "Experience with AWS and Docker is a must.",
+              "kind": "technical",
+              "priority": "must"
+            }
+          ]
+        },
+        "questions": [
+          {
+            "id": "q_c82623b0",
+            "requirement_ids": [
+              "req_59e9b3a3"
+            ],
+            "category": "technical",
+            "prompt": "Describe how you would design and implement a new feature in a web application using React, Node.js, and TypeScript. Include considerations for component architecture, state management, type safety, and API integration.",
+            "answer_outline": "Discuss component hierarchy, use of functional components with hooks, TypeScript interfaces/types for props and state, state management options (Context, Redux, Zustand), API contract design with typed request/response objects, error handling, testing strategy (unit and integration), and build tooling (Webpack/Babel).",
+            "difficulty": 2
+          },
+          {
+            "id": "q_b207ebd4",
+            "requirement_ids": [
+              "req_0c217805"
+            ],
+            "category": "technical",
+            "prompt": "Explain how you would containerize a Node.js microservice with Docker and deploy it to AWS. Cover Dockerfile creation, image versioning, CI/CD pipeline, and AWS services you would use for hosting and scaling.",
+            "answer_outline": "Outline Dockerfile best practices (base image, non‑root user, multi‑stage build), tagging strategy, pushing to ECR, CI/CD steps (GitHub Actions/CodePipeline), AWS deployment options (ECS/Fargate, EKS, or Elastic Beanstalk), load balancing, auto‑scaling, secrets management (Parameter Store/Secrets Manager), logging and monitoring (CloudWatch), and rollback procedures.",
+            "difficulty": 2
+          }
+        ],
+        "flashcards": [
+          {
+            "id": "f_d4f1efaf",
+            "front": "What are the main advantages of using TypeScript when building React applications?",
+            "back": "TypeScript provides static type checking, improved IDE autocompletion, early detection of bugs, clearer component props/interfaces, and better maintainability for large React codebases.",
+            "requirement_ids": [
+              "req_59e9b3a3"
+            ]
+          },
+          {
+            "id": "f_1a51a36a",
+            "front": "Explain React Hooks and give two common examples of how they are used.",
+            "back": "React Hooks let function components manage state and side effects without class components. useState adds local state, e.g., const [count, setCount] = useState(0). useEffect runs side effects like data fetching or subscriptions after render.",
+            "requirement_ids": [
+              "req_59e9b3a3"
+            ]
+          },
+          {
+            "id": "f_8f72aeda",
+            "front": "Describe the Node.js event loop and its role in handling I/O operations.",
+            "back": "The event loop is a single-threaded loop that processes a queue of callbacks. It delegates I/O operations to the libuv thread pool, then enqueues their callbacks when completed, allowing non‑blocking concurrency without multiple threads for JavaScript code.",
+            "requirement_ids": [
+              "req_59e9b3a3"
+            ]
+          },
+          {
+            "id": "f_6696ac50",
+            "front": "What is Docker and how does it integrate with AWS services such as ECS or EKS?",
+            "back": "Docker packages applications into lightweight containers with all dependencies. In AWS, containers can be run on ECS (Elastic Container Service) for serverless Fargate or EC2 launch types, or on EKS (Elastic Kubernetes Service) for Kubernetes‑managed orchestration, enabling scalable, portable deployments.",
+            "requirement_ids": [
+              "req_0c217805"
+            ]
+          },
+          {
+            "id": "f_be4ba8de",
+            "front": "Explain the purpose of IAM roles and policies in AWS and how they improve security for containerized workloads.",
+            "back": "IAM roles define a set of permissions (policies) that can be assumed by AWS services or users. For containers, you attach an IAM role to the task (ECS) or pod (EKS) so the container inherits only the permissions it needs, following the principle of least privilege and avoiding hard‑coded credentials.",
+            "requirement_ids": [
+              "req_0c217805"
+            ]
+          }
+        ],
+        "schedule": {
+          "days_available": 5,
+          "days": [
+            {
+              "day": 1,
+              "focus": "Technical Deep Dive",
+              "question_ids": [
+                "q_c82623b0"
+              ],
+              "minutes": 20
+            },
+            {
+              "day": 2,
+              "focus": "Flashcards & Review",
+              "question_ids": [],
+              "minutes": 15
+            },
+            {
+              "day": 3,
+              "focus": "Technical Deep Dive",
+              "question_ids": [
+                "q_b207ebd4"
+              ],
+              "minutes": 20
+            },
+            {
+              "day": 4,
+              "focus": "Flashcards & Review",
+              "question_ids": [],
+              "minutes": 15
+            },
+            {
+              "day": 5,
+              "focus": "Flashcards & Review",
+              "question_ids": [],
+              "minutes": 15
+            }
+          ]
+        },
+        "coverage": {
+          "uncovered_requirement_ids": [],
+          "passes": 1
+        }
+      },
+      "error": null
+    }
+  ]
+}

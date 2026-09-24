@@ -72,7 +72,8 @@ The kit generation process is heavily orchestrated to ensure deterministic, reli
    - Generates technical and behavioural questions, strictly mapping them to specific `requirement_ids`.
 3. **Coverage Check (`CoverageService.ts`):** *(The Second Pass)*
    - This is purely deterministic TS code. It loops over all generated questions and maps their `requirement_ids` against the extracted "must-have" requirements.
-   - If gaps are found, it triggers a second specific LLM draft specifically targeting the missing requirements until coverage is 100%.
+   - If gaps are found, it triggers a second specific LLM draft specifically targeting the missing requirements. 
+   - If a kit remains uncovered after the max passes, it continues successfully with `uncovered_requirement_ids` recorded so the kit ships with honestly-reported gaps rather than failing.
 4. **Scheduling (`ScheduleService.ts`):**
    - Arithmetic-based allocation. Questions are sorted by difficulty (hardest first).
    - They are divided deterministically across the exact number of `days_available` requested by the user.
@@ -116,3 +117,15 @@ This score is persisted to the MongoDB. On subsequent practice sessions, the fla
    - The application fetches user-provided URLs. The `CrawlerService` implements basic SSRF protection by verifying the resolved IP address does not point to private/loopback networks (e.g., `127.0.0.1`, `10.x.x.x`) before initiating the axios request.
 3. **Known Limitations:**
    - Single Page Applications (SPAs) that heavily rely on client-side React rendering (with no SSR) may return empty bodies to `cheerio`. A headless browser like Puppeteer would solve this, but was avoided to keep the backend lightweight and fast.
+
+---
+
+## 🛡️ Edge Cases
+- **Invalid/404/timeout URL:** The crawler catches the exception, logs it, and gracefully falls back to generating the kit purely using the JD.
+- **No hiring page found:** The second hop logic safely returns no additional context, falling back to the homepage + JD.
+- **Thin JD:** The LLM uses generalized knowledge for the job title to flesh out requirements and questions.
+- **No public discussion found:** The InterviewResearchService catches the missing data and returns a safe empty fallback state.
+- **Invalid LLM JSON:** LLMService leverages the Zod schema to parse; if it fails, it retries or eventually throws, which fails the individual kit but not the batch.
+- **LLM rate-limited:** LLMService has an automated exponential backoff/retry loop to wait out the 429 block.
+- **Duplicate submission:** The `POST /kits` and `/batch` endpoints check `company_url` + `jd_chars` and return the existing kit immediately without regenerating.
+- **1-day/60-day schedule:** `ScheduleService` calculates days proportionally (min 1 day, max 60 days) and distributes questions cleanly without crashing.

@@ -52,8 +52,7 @@ export class KitGenerator {
         location: "Remote",
         jd_chars: jd.length,
         researched_at: new Date().toISOString(),
-        pages_used: research.pagesUsed,
-        contextText
+        pages_used: research.pagesUsed
       },
       company_brief,
       role,
@@ -71,6 +70,7 @@ export class KitGenerator {
     if (userId) {
       const kit = await Kit.create({
         ...validatedKit,
+        internalContext: contextText,
         userId,
         status: 'COMPLETED'
       });

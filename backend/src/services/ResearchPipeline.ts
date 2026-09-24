@@ -48,11 +48,29 @@ export class ResearchPipeline {
 
       console.log(`Found promising links: ${topLinksToFetch.join(', ')}`);
 
+      const secondHopLinks: string[] = [];
+
       for (const link of topLinksToFetch) {
         const page = await this.crawler.fetchPage(link);
         if (page) {
           pagesUsed.push(page.url);
           companyPages.push(page);
+          secondHopLinks.push(...page.links);
+        }
+      }
+
+      // 3.5 Second Hop
+      // Dedup against pages already fetched
+      const uniqueSecondHop = [...new Set(secondHopLinks)].filter(l => !pagesUsed.includes(l) && l !== companyUrl);
+      const rankedSecondHop = this.crawler.rankLinks(uniqueSecondHop, companyUrl);
+      
+      if (rankedSecondHop.length > 0) {
+        const bestSecondHopLink = rankedSecondHop[0];
+        console.log(`Found promising second-hop link: ${bestSecondHopLink}`);
+        const secondHopPage = await this.crawler.fetchPage(bestSecondHopLink);
+        if (secondHopPage) {
+          pagesUsed.push(secondHopPage.url);
+          companyPages.push(secondHopPage);
         }
       }
     } else {
