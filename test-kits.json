@@ -1,0 +1,1119 @@
+{
+  "version": "1.0",
+  "generated_at": "2026-09-24T13:39:25.704Z",
+  "kits": [
+    {
+      "id": "case-normal",
+      "status": "ok",
+      "kit": {
+        "source": {
+          "company": "example.com",
+          "company_url": "https://example.com",
+          "role": "Senior Software Engineer",
+          "location": "Remote",
+          "jd_chars": 202,
+          "researched_at": "2026-09-24T13:39:35.550Z",
+          "pages_used": [
+            "https://example.com"
+          ]
+        },
+        "company_brief": {
+          "summary": "Example Domain is a placeholder domain used in documentation and examples, intended to be used without permission and not for real operations.",
+          "what_they_do": "Provides a generic, non‑functional domain name that can be safely used in documentation, tutorials, and examples.",
+          "sources": []
+        },
+        "role": {
+          "title": "Senior Software Engineer",
+          "seniority": "Senior",
+          "responsibilities": [
+            "Build scalable microservices",
+            "Mentor junior developers"
+          ],
+          "requirements": [
+            {
+              "id": "req_71fca084",
+              "text": "5+ years experience with React, Node.js, and TypeScript",
+              "kind": "technical",
+              "priority": "must"
+            },
+            {
+              "id": "req_552508b8",
+              "text": "Experience with AWS and Docker",
+              "kind": "technical",
+              "priority": "must"
+            }
+          ]
+        },
+        "questions": [
+          {
+            "id": "q_7f94d83f",
+            "requirement_ids": [
+              "req_71fca084"
+            ],
+            "category": "technical",
+            "prompt": "Explain how you would structure a large-scale React application using TypeScript and a Node.js backend, focusing on component architecture, state management, and type safety.",
+            "answer_outline": "Discuss folder hierarchy, functional components with hooks, TypeScript interfaces/types for props and state, separation of UI and business logic, API service layer, error handling, testing strategy, and build tooling.",
+            "difficulty": 2
+          },
+          {
+            "id": "q_ec591fb6",
+            "requirement_ids": [
+              "req_552508b8"
+            ],
+            "category": "technical",
+            "prompt": "Describe the steps to containerize a Node.js service with Docker and deploy it to AWS using ECS/Fargate, including CI/CD pipeline considerations.",
+            "answer_outline": "Outline Dockerfile creation (multi‑stage), image tagging, pushing to ECR, defining ECS task definitions and services, networking with VPC/ALB, environment variables/secrets, CI pipeline (build, test, push, deploy), monitoring and rollback strategies.",
+            "difficulty": 3
+          },
+          {
+            "id": "q_69735f2e",
+            "requirement_ids": [
+              "req_71fca084",
+              "req_552508b8"
+            ],
+            "category": "technical",
+            "prompt": "How would you integrate a React front‑end with a TypeScript Node.js API hosted on AWS, ensuring secure communication and efficient deployment using Docker?",
+            "answer_outline": "Explain API design with TypeScript, CORS configuration, authentication (e.g., JWT/OAuth), Docker‑compose for local development, separate Docker images for front‑end and back‑end, pushing to ECR, deploying via ECS/Fargate with an ALB, environment configuration, scaling, and logging/monitoring setup.",
+            "difficulty": 3
+          }
+        ],
+        "flashcards": [
+          {
+            "id": "f_0727f999",
+            "front": "Explain the benefits and typical use cases of React Hooks in a TypeScript project.",
+            "back": "React Hooks let functional components manage state and side effects without classes. In TypeScript they provide typed signatures, improve code reuse, and simplify component logic, resulting in clearer, more maintainable code.",
+            "requirement_ids": [
+              "req_71fca084"
+            ]
+          },
+          {
+            "id": "f_8e32d9a6",
+            "front": "How would you structure a Node.js backend using TypeScript to ensure type safety across modules?",
+            "back": "Configure a strict tsconfig, define interfaces for request/response objects, use ES modules or namespaces, and compile with tsc. Apply ESLint with TypeScript rules and write type‑aware tests to catch mismatches early.",
+            "requirement_ids": [
+              "req_71fca084"
+            ]
+          },
+          {
+            "id": "f_f718aada",
+            "front": "Describe how you would containerize a Node.js application with Docker and deploy it to AWS ECS.",
+            "back": "Create a Dockerfile that installs dependencies, copies source code, and runs the app. Build the image, push to Amazon ECR, define an ECS task using that image, and launch a service with a load balancer. Use environment variables and IAM roles for credentials.",
+            "requirement_ids": [
+              "req_552508b8"
+            ]
+          },
+          {
+            "id": "f_2697d75d",
+            "front": "What are the key security considerations when running services on AWS?",
+            "back": "Apply least‑privilege IAM roles, isolate resources with VPCs and security groups, encrypt data at rest (S3, EBS) and in transit (TLS), enable GuardDuty and CloudTrail, rotate credentials regularly, and keep instances patched.",
+            "requirement_ids": [
+              "req_552508b8"
+            ]
+          }
+        ],
+        "schedule": {
+          "days_available": 5,
+          "days": [
+            {
+              "day": 1,
+              "focus": "Technical Deep Dive",
+              "question_ids": [
+                "q_ec591fb6"
+              ],
+              "minutes": 30
+            },
+            {
+              "day": 2,
+              "focus": "Technical Deep Dive",
+              "question_ids": [
+                "q_69735f2e"
+              ],
+              "minutes": 30
+            },
+            {
+              "day": 3,
+              "focus": "Flashcards & Review",
+              "question_ids": [],
+              "minutes": 15
+            },
+            {
+              "day": 4,
+              "focus": "Technical Deep Dive",
+              "question_ids": [
+                "q_7f94d83f"
+              ],
+              "minutes": 20
+            },
+            {
+              "day": 5,
+              "focus": "Flashcards & Review",
+              "question_ids": [],
+              "minutes": 15
+            }
+          ]
+        },
+        "coverage": {
+          "uncovered_requirement_ids": [],
+          "passes": 1
+        }
+      },
+      "error": null
+    },
+    {
+      "id": "case-thin",
+      "status": "ok",
+      "kit": {
+        "source": {
+          "company": "example.com",
+          "company_url": "https://example.com",
+          "role": "",
+          "location": "Remote",
+          "jd_chars": 25,
+          "researched_at": "2026-09-24T13:39:40.166Z",
+          "pages_used": [
+            "https://example.com"
+          ]
+        },
+        "company_brief": {
+          "summary": "Example Domain is a placeholder domain used in documentation and examples, not intended for real-world operations.",
+          "what_they_do": "It provides a generic domain name (example.com) that can be used in tutorials, documentation, and examples without needing permission.",
+          "sources": []
+        },
+        "role": {
+          "title": "",
+          "seniority": "",
+          "responsibilities": [],
+          "requirements": []
+        },
+        "questions": [],
+        "flashcards": [],
+        "schedule": {
+          "days_available": 10,
+          "days": [
+            {
+              "day": 1,
+              "focus": "Flashcards & Review",
+              "question_ids": [],
+              "minutes": 15
+            },
+            {
+              "day": 2,
+              "focus": "Flashcards & Review",
+              "question_ids": [],
+              "minutes": 15
+            },
+            {
+              "day": 3,
+              "focus": "Flashcards & Review",
+              "question_ids": [],
+              "minutes": 15
+            },
+            {
+              "day": 4,
+              "focus": "Flashcards & Review",
+              "question_ids": [],
+              "minutes": 15
+            },
+            {
+              "day": 5,
+              "focus": "Flashcards & Review",
+              "question_ids": [],
+              "minutes": 15
+            },
+            {
+              "day": 6,
+              "focus": "Flashcards & Review",
+              "question_ids": [],
+              "minutes": 15
+            },
+            {
+              "day": 7,
+              "focus": "Flashcards & Review",
+              "question_ids": [],
+              "minutes": 15
+            },
+            {
+              "day": 8,
+              "focus": "Flashcards & Review",
+              "question_ids": [],
+              "minutes": 15
+            },
+            {
+              "day": 9,
+              "focus": "Flashcards & Review",
+              "question_ids": [],
+              "minutes": 15
+            },
+            {
+              "day": 10,
+              "focus": "Flashcards & Review",
+              "question_ids": [],
+              "minutes": 15
+            }
+          ]
+        },
+        "coverage": {
+          "uncovered_requirement_ids": [],
+          "passes": 1
+        }
+      },
+      "error": null
+    },
+    {
+      "id": "case-no-hiring",
+      "status": "ok",
+      "kit": {
+        "source": {
+          "company": "neverssl.com",
+          "company_url": "https://neverssl.com",
+          "role": "Data Scientist",
+          "location": "Remote",
+          "jd_chars": 75,
+          "researched_at": "2026-09-24T13:39:58.644Z",
+          "pages_used": []
+        },
+        "company_brief": {
+          "summary": "",
+          "what_they_do": "",
+          "sources": []
+        },
+        "role": {
+          "title": "Data Scientist",
+          "seniority": "",
+          "responsibilities": [],
+          "requirements": [
+            {
+              "id": "req_2eb8b6e6",
+              "text": "Python",
+              "kind": "technical",
+              "priority": "must"
+            },
+            {
+              "id": "req_d257cc8e",
+              "text": "SQL",
+              "kind": "technical",
+              "priority": "must"
+            },
+            {
+              "id": "req_6d688fbe",
+              "text": "Pandas",
+              "kind": "technical",
+              "priority": "must"
+            },
+            {
+              "id": "req_9ce8919f",
+              "text": "Scikit-learn",
+              "kind": "technical",
+              "priority": "must"
+            }
+          ]
+        },
+        "questions": [
+          {
+            "id": "q_ac2a9ea3",
+            "requirement_ids": [
+              "req_2eb8b6e6"
+            ],
+            "category": "technical",
+            "prompt": "Explain how Python's garbage collection works and how you can control object lifetimes in a large codebase.",
+            "answer_outline": "Discuss reference counting, cyclic garbage collector, __del__, weakref, and context managers for resource cleanup.",
+            "difficulty": 2
+          },
+          {
+            "id": "q_e60359a5",
+            "requirement_ids": [
+              "req_d257cc8e"
+            ],
+            "category": "technical",
+            "prompt": "Write a SQL query to find the top 5 customers by total purchase amount in the last quarter, handling possible NULL values in the amount column.",
+            "answer_outline": "Select customer_id, SUM(COALESCE(amount,0)) as total, filter by date range, GROUP BY, ORDER BY total DESC, LIMIT 5. Mention indexes for performance.",
+            "difficulty": 3
+          },
+          {
+            "id": "q_1d550615",
+            "requirement_ids": [
+              "req_6d688fbe"
+            ],
+            "category": "technical",
+            "prompt": "Given a DataFrame with timestamped sensor readings, demonstrate how to resample the data to 15‑minute intervals and fill missing values using forward fill.",
+            "answer_outline": "Use pd.to_datetime, set index, df.resample('15T').ffill(). Explain handling of timezone and missing data.",
+            "difficulty": 2
+          },
+          {
+            "id": "q_d7f72ade",
+            "requirement_ids": [
+              "req_9ce8919f"
+            ],
+            "category": "technical",
+            "prompt": "Describe the steps to build and evaluate a scikit-learn pipeline that includes data scaling, feature selection, and a RandomForest classifier for a binary classification problem.",
+            "answer_outline": "Create Pipeline([('scaler', StandardScaler()),('selector', SelectKBest()),('clf', RandomForestClassifier())]); use GridSearchCV for hyperparameters; evaluate with cross‑validated ROC‑AUC; discuss data leakage prevention.",
+            "difficulty": 3
+          }
+        ],
+        "flashcards": [
+          {
+            "id": "f_a4d5e838",
+            "front": "What are Python's built-in data types and how does mutability differ among them?",
+            "back": "Python includes immutable types like int, float, str, tuple, and frozenset, and mutable types like list, dict, set, and bytearray. Immutable objects cannot be changed after creation, while mutable objects can be modified in place.",
+            "requirement_ids": [
+              "req_2eb8b6e6"
+            ]
+          },
+          {
+            "id": "f_e6648f51",
+            "front": "Explain the difference between an INNER JOIN and a LEFT OUTER JOIN in SQL.",
+            "back": "An INNER JOIN returns rows only when there is a matching key in both tables. A LEFT OUTER JOIN returns all rows from the left table and matches from the right table; when there is no match, NULLs are returned for right‑table columns.",
+            "requirement_ids": [
+              "req_d257cc8e"
+            ]
+          },
+          {
+            "id": "f_7ca54514",
+            "front": "How can you filter rows in a Pandas DataFrame based on multiple column conditions efficiently?",
+            "back": "Use boolean indexing with logical operators, e.g., df[(df['col1'] > 0) & (df['col2'].isin(['A','B']))]. Combine conditions inside parentheses and use & for AND, | for OR, and ~ for NOT.",
+            "requirement_ids": [
+              "req_6d688fbe"
+            ]
+          },
+          {
+            "id": "f_96e9b053",
+            "front": "What is the purpose of scikit-learn's train_test_split function and which key parameters does it accept?",
+            "back": "train_test_split randomly splits arrays or matrices into training and testing subsets. Key parameters include test_size (proportion or absolute number for test set), train_size, random_state (for reproducibility), and stratify (to preserve class distribution).",
+            "requirement_ids": [
+              "req_9ce8919f"
+            ]
+          }
+        ],
+        "schedule": {
+          "days_available": 3,
+          "days": [
+            {
+              "day": 1,
+              "focus": "Technical Deep Dive",
+              "question_ids": [
+                "q_e60359a5",
+                "q_d7f72ade"
+              ],
+              "minutes": 60
+            },
+            {
+              "day": 2,
+              "focus": "Technical Deep Dive",
+              "question_ids": [
+                "q_ac2a9ea3"
+              ],
+              "minutes": 20
+            },
+            {
+              "day": 3,
+              "focus": "Technical Deep Dive",
+              "question_ids": [
+                "q_1d550615"
+              ],
+              "minutes": 20
+            }
+          ]
+        },
+        "coverage": {
+          "uncovered_requirement_ids": [],
+          "passes": 1
+        }
+      },
+      "error": null
+    },
+    {
+      "id": "case-invalid-url",
+      "status": "ok",
+      "kit": {
+        "source": {
+          "company": "does-not-exist.invalid",
+          "company_url": "https://does-not-exist.invalid",
+          "role": "Frontend Developer",
+          "location": "Remote",
+          "jd_chars": 34,
+          "researched_at": "2026-09-24T13:40:26.909Z",
+          "pages_used": []
+        },
+        "company_brief": {
+          "summary": "",
+          "what_they_do": "",
+          "sources": []
+        },
+        "role": {
+          "title": "Frontend Developer",
+          "seniority": "",
+          "responsibilities": [],
+          "requirements": [
+            {
+              "id": "req_eeaca5b5",
+              "text": "React",
+              "kind": "technical",
+              "priority": "must"
+            },
+            {
+              "id": "req_8df32b3c",
+              "text": "CSS",
+              "kind": "technical",
+              "priority": "must"
+            }
+          ]
+        },
+        "questions": [
+          {
+            "id": "q_e619c51f",
+            "requirement_ids": [
+              "req_eeaca5b5"
+            ],
+            "category": "technical",
+            "prompt": "Explain the virtual DOM in React and how it improves performance.",
+            "answer_outline": "Discuss what the virtual DOM is, its diffing algorithm, how React batches updates and efficiently patches the real DOM, and provide examples of performance benefits.",
+            "difficulty": 2
+          },
+          {
+            "id": "q_0f226923",
+            "requirement_ids": [
+              "req_8df32b3c"
+            ],
+            "category": "technical",
+            "prompt": "Describe how CSS specificity works and how to resolve conflicting style rules.",
+            "answer_outline": "Define selector specificity, explain the calculation hierarchy (inline, IDs, classes/attributes/pseudo-classes, elements/pseudo-elements), discuss the cascade and !important, and illustrate conflict resolution with examples.",
+            "difficulty": 2
+          }
+        ],
+        "flashcards": [
+          {
+            "id": "f_780b61d4",
+            "front": "What is a React Hook and why would you use useEffect instead of componentDidMount?",
+            "back": "React Hooks are functions that let you use state and other React features without writing a class. useEffect runs after render and can replace componentDidMount, componentDidUpdate, and componentWillUnmount, allowing side effects in functional components.",
+            "requirement_ids": [
+              "req_eeaca5b5"
+            ]
+          },
+          {
+            "id": "f_eb4ac9ff",
+            "front": "Explain the difference between controlled and uncontrolled components in React.",
+            "back": "Controlled components have their value managed by React state via props, while uncontrolled components store their own internal state and use refs to access the value.",
+            "requirement_ids": [
+              "req_eeaca5b5"
+            ]
+          },
+          {
+            "id": "f_b0e934be",
+            "front": "What is the CSS box model and how does box-sizing affect it?",
+            "back": "The CSS box model describes how padding, border, and margin surround the content of an element. box-sizing:border-box includes padding and border in the element’s total width/height, whereas content-box (default) adds them outside the set width/height.",
+            "requirement_ids": [
+              "req_8df32b3c"
+            ]
+          },
+          {
+            "id": "f_17fab517",
+            "front": "How would you create a responsive layout using CSS Flexbox?",
+            "back": "Use display:flex on the container, set flex-direction, justify-content, align-items, and allow child items to grow/shrink with flex properties (e.g., flex:1). Combine with media queries to adjust flex settings at different breakpoints.",
+            "requirement_ids": [
+              "req_8df32b3c"
+            ]
+          }
+        ],
+        "schedule": {
+          "days_available": 2,
+          "days": [
+            {
+              "day": 1,
+              "focus": "Technical Deep Dive",
+              "question_ids": [
+                "q_e619c51f"
+              ],
+              "minutes": 20
+            },
+            {
+              "day": 2,
+              "focus": "Technical Deep Dive",
+              "question_ids": [
+                "q_0f226923"
+              ],
+              "minutes": 20
+            }
+          ]
+        },
+        "coverage": {
+          "uncovered_requirement_ids": [],
+          "passes": 1
+        }
+      },
+      "error": null
+    },
+    {
+      "id": "case-coverage-gap",
+      "status": "ok",
+      "kit": {
+        "source": {
+          "company": "example.com",
+          "company_url": "https://example.com",
+          "role": "Full Stack Developer",
+          "location": "Remote",
+          "jd_chars": 57,
+          "researched_at": "2026-09-24T13:41:06.546Z",
+          "pages_used": [
+            "https://example.com"
+          ]
+        },
+        "company_brief": {
+          "summary": "Example Domain is a placeholder domain used in documentation and examples, not an active business.",
+          "what_they_do": "Provides a generic domain for illustrative purposes in documentation, allowing examples without needing permission.",
+          "sources": []
+        },
+        "role": {
+          "title": "Full Stack Developer",
+          "seniority": "",
+          "responsibilities": [],
+          "requirements": [
+            {
+              "id": "req_209b1475",
+              "text": "React",
+              "kind": "technical",
+              "priority": "must"
+            },
+            {
+              "id": "req_edee7333",
+              "text": "Node.js",
+              "kind": "technical",
+              "priority": "must"
+            },
+            {
+              "id": "req_daea3a5e",
+              "text": "Java",
+              "kind": "technical",
+              "priority": "must"
+            }
+          ]
+        },
+        "questions": [
+          {
+            "id": "q_3b196c73",
+            "requirement_ids": [
+              "req_209b1475"
+            ],
+            "category": "technical",
+            "prompt": "Explain the virtual DOM in React and how it improves rendering performance.",
+            "answer_outline": "Describe what the virtual DOM is, how React creates a lightweight copy of the real DOM, the diffing algorithm, and how only changed elements are patched to the actual DOM, resulting in fewer reflows and better performance.",
+            "difficulty": 2
+          },
+          {
+            "id": "q_df8cb47e",
+            "requirement_ids": [
+              "req_edee7333"
+            ],
+            "category": "technical",
+            "prompt": "Describe the Node.js event loop and how it handles asynchronous I/O operations.",
+            "answer_outline": "Outline the phases of the event loop (timers, I/O callbacks, idle/prepare, poll, check, close), explain non‑blocking I/O, the role of the libuv thread pool, and how callbacks/promises are queued and executed.",
+            "difficulty": 2
+          },
+          {
+            "id": "q_e095418c",
+            "requirement_ids": [
+              "req_daea3a5e"
+            ],
+            "category": "technical",
+            "prompt": "Explain the difference between checked and unchecked exceptions in Java and give examples of when to use each.",
+            "answer_outline": "Define checked exceptions (must be declared or caught) with examples like IOException, and unchecked exceptions (RuntimeException subclasses) with examples like NullPointerException; discuss design considerations and appropriate use cases for each type.",
+            "difficulty": 2
+          }
+        ],
+        "flashcards": [
+          {
+            "id": "f_eab097dc",
+            "front": "What are React Hooks and why are they useful?",
+            "back": "React Hooks are functions such as useState and useEffect that let you use state and side‑effects in functional components, eliminating the need for class components and simplifying code reuse.",
+            "requirement_ids": [
+              "req_209b1475"
+            ]
+          },
+          {
+            "id": "f_1c4da772",
+            "front": "Explain the React reconciliation process.",
+            "back": "Reconciliation is React’s algorithm that diffs the virtual DOM tree against the previous version, determines the minimal set of changes, and updates the real DOM efficiently using keys to track element identity.",
+            "requirement_ids": [
+              "req_209b1475"
+            ]
+          },
+          {
+            "id": "f_8f905566",
+            "front": "Describe the Node.js event loop and its phases.",
+            "back": "The event loop is a single‑threaded loop that handles asynchronous callbacks. It has phases like timers, pending callbacks, poll, check, and close callbacks, processing callbacks from the queue in each phase.",
+            "requirement_ids": [
+              "req_edee7333"
+            ]
+          },
+          {
+            "id": "f_6624c4c8",
+            "front": "When would you use Node.js streams instead of buffers?",
+            "back": "Streams are used for processing large or continuous data (e.g., file uploads, network I/O) because they handle data piece‑by‑piece, reducing memory usage, whereas buffers load the entire data into memory at once.",
+            "requirement_ids": [
+              "req_edee7333"
+            ]
+          },
+          {
+            "id": "f_ffc3b346",
+            "front": "What are the main types of garbage collection in the Java HotSpot JVM?",
+            "back": "The HotSpot JVM uses Serial, Parallel, CMS (Concurrent Mark‑Sweep), and G1 (Garbage‑First) collectors, each balancing pause times and throughput for different workload characteristics.",
+            "requirement_ids": [
+              "req_daea3a5e"
+            ]
+          },
+          {
+            "id": "f_1293dab2",
+            "front": "Tell me about a time you resolved a conflict while working on a Java backend project.",
+            "back": "Candidate should describe a specific situation (e.g., differing API design opinions), actions taken (facilitated discussion, data‑driven decision), and outcome (aligned team, shipped feature on schedule).",
+            "requirement_ids": [
+              "req_daea3a5e"
+            ]
+          }
+        ],
+        "schedule": {
+          "days_available": 60,
+          "days": [
+            {
+              "day": 1,
+              "focus": "Technical Deep Dive",
+              "question_ids": [
+                "q_3b196c73"
+              ],
+              "minutes": 20
+            },
+            {
+              "day": 2,
+              "focus": "Flashcards & Review",
+              "question_ids": [],
+              "minutes": 15
+            },
+            {
+              "day": 3,
+              "focus": "Flashcards & Review",
+              "question_ids": [],
+              "minutes": 15
+            },
+            {
+              "day": 4,
+              "focus": "Flashcards & Review",
+              "question_ids": [],
+              "minutes": 15
+            },
+            {
+              "day": 5,
+              "focus": "Flashcards & Review",
+              "question_ids": [],
+              "minutes": 15
+            },
+            {
+              "day": 6,
+              "focus": "Flashcards & Review",
+              "question_ids": [],
+              "minutes": 15
+            },
+            {
+              "day": 7,
+              "focus": "Flashcards & Review",
+              "question_ids": [],
+              "minutes": 15
+            },
+            {
+              "day": 8,
+              "focus": "Flashcards & Review",
+              "question_ids": [],
+              "minutes": 15
+            },
+            {
+              "day": 9,
+              "focus": "Flashcards & Review",
+              "question_ids": [],
+              "minutes": 15
+            },
+            {
+              "day": 10,
+              "focus": "Flashcards & Review",
+              "question_ids": [],
+              "minutes": 15
+            },
+            {
+              "day": 11,
+              "focus": "Flashcards & Review",
+              "question_ids": [],
+              "minutes": 15
+            },
+            {
+              "day": 12,
+              "focus": "Flashcards & Review",
+              "question_ids": [],
+              "minutes": 15
+            },
+            {
+              "day": 13,
+              "focus": "Flashcards & Review",
+              "question_ids": [],
+              "minutes": 15
+            },
+            {
+              "day": 14,
+              "focus": "Flashcards & Review",
+              "question_ids": [],
+              "minutes": 15
+            },
+            {
+              "day": 15,
+              "focus": "Flashcards & Review",
+              "question_ids": [],
+              "minutes": 15
+            },
+            {
+              "day": 16,
+              "focus": "Flashcards & Review",
+              "question_ids": [],
+              "minutes": 15
+            },
+            {
+              "day": 17,
+              "focus": "Flashcards & Review",
+              "question_ids": [],
+              "minutes": 15
+            },
+            {
+              "day": 18,
+              "focus": "Flashcards & Review",
+              "question_ids": [],
+              "minutes": 15
+            },
+            {
+              "day": 19,
+              "focus": "Flashcards & Review",
+              "question_ids": [],
+              "minutes": 15
+            },
+            {
+              "day": 20,
+              "focus": "Flashcards & Review",
+              "question_ids": [],
+              "minutes": 15
+            },
+            {
+              "day": 21,
+              "focus": "Technical Deep Dive",
+              "question_ids": [
+                "q_df8cb47e"
+              ],
+              "minutes": 20
+            },
+            {
+              "day": 22,
+              "focus": "Flashcards & Review",
+              "question_ids": [],
+              "minutes": 15
+            },
+            {
+              "day": 23,
+              "focus": "Flashcards & Review",
+              "question_ids": [],
+              "minutes": 15
+            },
+            {
+              "day": 24,
+              "focus": "Flashcards & Review",
+              "question_ids": [],
+              "minutes": 15
+            },
+            {
+              "day": 25,
+              "focus": "Flashcards & Review",
+              "question_ids": [],
+              "minutes": 15
+            },
+            {
+              "day": 26,
+              "focus": "Flashcards & Review",
+              "question_ids": [],
+              "minutes": 15
+            },
+            {
+              "day": 27,
+              "focus": "Flashcards & Review",
+              "question_ids": [],
+              "minutes": 15
+            },
+            {
+              "day": 28,
+              "focus": "Flashcards & Review",
+              "question_ids": [],
+              "minutes": 15
+            },
+            {
+              "day": 29,
+              "focus": "Flashcards & Review",
+              "question_ids": [],
+              "minutes": 15
+            },
+            {
+              "day": 30,
+              "focus": "Flashcards & Review",
+              "question_ids": [],
+              "minutes": 15
+            },
+            {
+              "day": 31,
+              "focus": "Flashcards & Review",
+              "question_ids": [],
+              "minutes": 15
+            },
+            {
+              "day": 32,
+              "focus": "Flashcards & Review",
+              "question_ids": [],
+              "minutes": 15
+            },
+            {
+              "day": 33,
+              "focus": "Flashcards & Review",
+              "question_ids": [],
+              "minutes": 15
+            },
+            {
+              "day": 34,
+              "focus": "Flashcards & Review",
+              "question_ids": [],
+              "minutes": 15
+            },
+            {
+              "day": 35,
+              "focus": "Flashcards & Review",
+              "question_ids": [],
+              "minutes": 15
+            },
+            {
+              "day": 36,
+              "focus": "Flashcards & Review",
+              "question_ids": [],
+              "minutes": 15
+            },
+            {
+              "day": 37,
+              "focus": "Flashcards & Review",
+              "question_ids": [],
+              "minutes": 15
+            },
+            {
+              "day": 38,
+              "focus": "Flashcards & Review",
+              "question_ids": [],
+              "minutes": 15
+            },
+            {
+              "day": 39,
+              "focus": "Flashcards & Review",
+              "question_ids": [],
+              "minutes": 15
+            },
+            {
+              "day": 40,
+              "focus": "Flashcards & Review",
+              "question_ids": [],
+              "minutes": 15
+            },
+            {
+              "day": 41,
+              "focus": "Technical Deep Dive",
+              "question_ids": [
+                "q_e095418c"
+              ],
+              "minutes": 20
+            },
+            {
+              "day": 42,
+              "focus": "Flashcards & Review",
+              "question_ids": [],
+              "minutes": 15
+            },
+            {
+              "day": 43,
+              "focus": "Flashcards & Review",
+              "question_ids": [],
+              "minutes": 15
+            },
+            {
+              "day": 44,
+              "focus": "Flashcards & Review",
+              "question_ids": [],
+              "minutes": 15
+            },
+            {
+              "day": 45,
+              "focus": "Flashcards & Review",
+              "question_ids": [],
+              "minutes": 15
+            },
+            {
+              "day": 46,
+              "focus": "Flashcards & Review",
+              "question_ids": [],
+              "minutes": 15
+            },
+            {
+              "day": 47,
+              "focus": "Flashcards & Review",
+              "question_ids": [],
+              "minutes": 15
+            },
+            {
+              "day": 48,
+              "focus": "Flashcards & Review",
+              "question_ids": [],
+              "minutes": 15
+            },
+            {
+              "day": 49,
+              "focus": "Flashcards & Review",
+              "question_ids": [],
+              "minutes": 15
+            },
+            {
+              "day": 50,
+              "focus": "Flashcards & Review",
+              "question_ids": [],
+              "minutes": 15
+            },
+            {
+              "day": 51,
+              "focus": "Flashcards & Review",
+              "question_ids": [],
+              "minutes": 15
+            },
+            {
+              "day": 52,
+              "focus": "Flashcards & Review",
+              "question_ids": [],
+              "minutes": 15
+            },
+            {
+              "day": 53,
+              "focus": "Flashcards & Review",
+              "question_ids": [],
+              "minutes": 15
+            },
+            {
+              "day": 54,
+              "focus": "Flashcards & Review",
+              "question_ids": [],
+              "minutes": 15
+            },
+            {
+              "day": 55,
+              "focus": "Flashcards & Review",
+              "question_ids": [],
+              "minutes": 15
+            },
+            {
+              "day": 56,
+              "focus": "Flashcards & Review",
+              "question_ids": [],
+              "minutes": 15
+            },
+            {
+              "day": 57,
+              "focus": "Flashcards & Review",
+              "question_ids": [],
+              "minutes": 15
+            },
+            {
+              "day": 58,
+              "focus": "Flashcards & Review",
+              "question_ids": [],
+              "minutes": 15
+            },
+            {
+              "day": 59,
+              "focus": "Flashcards & Review",
+              "question_ids": [],
+              "minutes": 15
+            },
+            {
+              "day": 60,
+              "focus": "Flashcards & Review",
+              "question_ids": [],
+              "minutes": 15
+            }
+          ]
+        },
+        "coverage": {
+          "uncovered_requirement_ids": [],
+          "passes": 1
+        }
+      },
+      "error": null
+    },
+    {
+      "id": "case-prompt-injection",
+      "status": "ok",
+      "kit": {
+        "source": {
+          "company": "localhost",
+          "company_url": "http://localhost:3005",
+          "role": "Junior Developer",
+          "location": "Remote",
+          "jd_chars": 17,
+          "researched_at": "2026-09-24T13:41:19.001Z",
+          "pages_used": []
+        },
+        "company_brief": {
+          "summary": "No information available.",
+          "what_they_do": "No information available.",
+          "sources": []
+        },
+        "role": {
+          "title": "Junior Developer",
+          "seniority": "Junior",
+          "responsibilities": [],
+          "requirements": []
+        },
+        "questions": [],
+        "flashcards": [],
+        "schedule": {
+          "days_available": 5,
+          "days": [
+            {
+              "day": 1,
+              "focus": "Flashcards & Review",
+              "question_ids": [],
+              "minutes": 15
+            },
+            {
+              "day": 2,
+              "focus": "Flashcards & Review",
+              "question_ids": [],
+              "minutes": 15
+            },
+            {
+              "day": 3,
+              "focus": "Flashcards & Review",
+              "question_ids": [],
+              "minutes": 15
+            },
+            {
+              "day": 4,
+              "focus": "Flashcards & Review",
+              "question_ids": [],
+              "minutes": 15
+            },
+            {
+              "day": 5,
+              "focus": "Flashcards & Review",
+              "question_ids": [],
+              "minutes": 15
+            }
+          ]
+        },
+        "coverage": {
+          "uncovered_requirement_ids": [],
+          "passes": 1
+        }
+      },
+      "error": null
+    }
+  ]
+}
