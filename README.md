@@ -1,8 +1,8 @@
-# AI Interview Prep Kit (AgentShield)
+# AI Interview Prep Kit
 
-Build a web application that turns a job description into a personalised interview preparation kit. This project was built for the Full-Stack Engineering Assessment.
+Build a web application that turns a job description into a personalised interview preparation kit.
 
-![Dashboard Preview](https://via.placeholder.com/1000x500.png?text=AI+Interview+Prep+Kit+-+AgentShield)
+![Dashboard Preview](https://via.placeholder.com/1000x500.png?text=AI+Interview+Prep+Kit)
 
 ## 🚀 Project Overview & Tech Stack
 
@@ -47,9 +47,9 @@ npm run dev --workspace=frontend
 ```
 
 ### 📦 Running the Batch Entry Point
-As per Section 9, a batch evaluation script is provided to generate kits without the UI.
+A batch generation script is provided to generate multiple kits programmatically without using the UI.
 
-1. Create a `cases.json` file in the root directory following the Appendix B format.
+1. Create a `cases.json` file in the root directory containing an array of roles.
 2. Run the evaluate script from the root (or backend) directory:
 ```bash
 npm run evaluate --workspace=backend -- --input ../cases.json --output ../kits.json
@@ -89,7 +89,7 @@ Rather than hardcoding a list of paths, `CrawlerService` fetches the homepage, e
 
 ## 💾 State Management (Generated, Edited, Pinned)
 
-The most complex state problem (Section 6) is handled gracefully in `BuilderService.ts`.
+The complex state of tracking user edits is handled gracefully in `BuilderService.ts`.
 Every generated item (Question, Flashcard) is assigned an `origin` property (defaulting to `GENERATED`).
 
 When a user edits a question inline via the UI, the frontend marks that item's origin as `EDITED`.
