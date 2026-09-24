@@ -40,8 +40,7 @@ export class InterviewResearchService {
       scrapedText = $('.result__snippet').text().replace(/\s+/g, ' ').trim();
     } catch (e: any) {
       console.warn(`Failed to retrieve public discussion for ${companyName}:`, e.message);
-      // We record the failure by passing empty text to the LLM, letting it use its internal knowledge 
-      // or explicitly state no recent public discussion was found.
+      // We record the failure and short-circuit below to avoid hallucination.
     }
 
     if (!scrapedText) {
