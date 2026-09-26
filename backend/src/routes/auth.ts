@@ -21,7 +21,9 @@ router.post('/register', async (req: Request, res: Response, next: NextFunction)
 
     const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET || 'development_secret_key_12345', { expiresIn: '7d' });
     
-    const isProduction = process.env.NODE_ENV === 'production';
+    // Determine if we are in a deployed environment
+    const isProduction = process.env.NODE_ENV === 'production' || process.env.RENDER === 'true';
+    
     res.cookie('token', token, {
       httpOnly: true,
       secure: isProduction,
@@ -51,7 +53,9 @@ router.post('/login', async (req: Request, res: Response, next: NextFunction) =>
 
     const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET || 'development_secret_key_12345', { expiresIn: '7d' });
     
-    const isProduction = process.env.NODE_ENV === 'production';
+    // Determine if we are in a deployed environment
+    const isProduction = process.env.NODE_ENV === 'production' || process.env.RENDER === 'true';
+    
     res.cookie('token', token, {
       httpOnly: true,
       secure: isProduction,
