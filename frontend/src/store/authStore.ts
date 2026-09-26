@@ -17,7 +17,12 @@ export const useAuthStore = create<AuthState>((set) => ({
       const res = await api.get('/auth/me');
       set({ user: res.data.user, loading: false });
     } catch {
-      set({ user: null, loading: false });
+      set((state) => {
+        // Prevent race condition: if user is already set (e.g. they just logged in manually),
+        // don't overwrite it with null from a delayed 401 response.
+        if (state.user) return { loading: false };
+        return { user: null, loading: false };
+      });
     }
   },
   login: (user) => set({ user, loading: false }),
