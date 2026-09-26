@@ -5,7 +5,7 @@ interface AuthState {
   user: any | null;
   loading: boolean;
   checkAuth: () => Promise<void>;
-  login: (user: any) => void;
+  login: (user: any, token?: string) => void;
   logout: () => Promise<void>;
 }
 
@@ -25,10 +25,14 @@ export const useAuthStore = create<AuthState>((set) => ({
       });
     }
   },
-  login: (user) => set({ user, loading: false }),
+  login: (user, token) => {
+    if (token) localStorage.setItem('token', token);
+    set({ user, loading: false });
+  },
   logout: async () => {
     try {
       await api.post('/auth/logout');
+      localStorage.removeItem('token');
       set({ user: null });
       window.location.href = '/login';
     } catch (e) {

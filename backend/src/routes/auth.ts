@@ -31,7 +31,7 @@ router.post('/register', async (req: Request, res: Response, next: NextFunction)
       maxAge: 7 * 24 * 60 * 60 * 1000 // 7 days
     });
 
-    res.status(201).json({ message: 'User registered successfully', user: { id: user._id, email: user.email } });
+    res.status(201).json({ message: 'User registered successfully', token, user: { id: user._id, email: user.email } });
   } catch (error) {
     next(error);
   }
@@ -63,7 +63,7 @@ router.post('/login', async (req: Request, res: Response, next: NextFunction) =>
       maxAge: 7 * 24 * 60 * 60 * 1000
     });
 
-    res.json({ message: 'Login successful', user: { id: user._id, email: user.email } });
+    res.json({ message: 'Login successful', token, user: { id: user._id, email: user.email } });
   } catch (error) {
     next(error);
   }

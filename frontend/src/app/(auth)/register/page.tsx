@@ -17,7 +17,7 @@ export default function RegisterPage() {
     e.preventDefault();
     try {
       const res = await api.post('/auth/register', { email, password });
-      login(res.data.user);
+      login(res.data.user, res.data.token);
       router.push('/dashboard');
     } catch (err: any) {
       setError(err.response?.data?.error || 'Registration failed');
